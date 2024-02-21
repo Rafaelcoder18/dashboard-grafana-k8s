@@ -1,55 +1,83 @@
-# Projeto de Estudante K8s
+# K8s Student Project
 
-Este projeto é uma tarefa de estudante focada em Kubernetes (K8s). Seu objetivo é fornecer experiência prática na implantação e gerenciamento de aplicativos usando o Kubernetes.
+This project is a student task focused on Kubernetes (K8s). Its goal is to provide hands-on experience in deploying and managing applications using Kubernetes.
 
-## Tabela de Conteúdos
+## Table of Contents
 
-- [Introdução](#introdução)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Utilização](#utilização)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [License](#license)
 
-## Introdução
+## Introduction
 
-Neste projeto, exploraremos os conceitos básicos do Kubernetes e aprenderemos como implantar e gerenciar aplicativos usando clusters do Kubernetes. O projeto abordará tópicos como:
+In this project, we will explore the basic concepts of Kubernetes and learn how to deploy and manage applications using Kubernetes in a kind cluster. The project will cover topics such as:
 
-- Configuração de um cluster do Kubernetes
-- Implantação de aplicativos usando manifestos do Kubernetes
-- Escalonamento de aplicativos
-- Gerenciamento de atualizações e reversões de aplicativos
-- Monitoramento e registro
+- Setting up a Kubernetes cluster;
+- Deploying the Grafana image;
+- Deploying a web interface to populate Grafana dashboards;
+- Deploying ingress;
+- Mounting log files.
 
-## Pré-requisitos
+## Prerequisites
 
-Antes de começar, certifique-se de ter os seguintes pré-requisitos:
+Before you begin, make sure you have the following prerequisites:
 
-- Conhecimento básico de contêineres e containerização
-- Familiaridade com a interface de linha de comando do Linux
-- Acesso a um cluster do Kubernetes (local ou baseado em nuvem)
+- Basic knowledge of containers and containerization;
+- Familiarity with the Linux command-line interface;
+- Access to a Linux operating system (VMs, WSL, Cloud Clusters);
+- Kubernetes installed on the operating system;
 
-## Instalação
+## Installation
 
-Para instalar as ferramentas necessárias e configurar seu ambiente de desenvolvimento, siga estas etapas:
+To install the necessary tools and set up your development environment, follow these steps:
 
-1. Instale o Docker: [link para o guia de instalação do Docker]
-2. Instale o Kubernetes: [link para o guia de instalação do Kubernetes]
-3. Configure seu cluster do Kubernetes: [link para o guia de configuração do cluster]
+### WSL
+1. Install Docker desktop: (https://docs.docker.com/desktop/install/windows-install/)
+2. Install Kubernetes: (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+3. Install a tool that is capable of creating a local cluster:
+    - kind (https://kind.sigs.k8s.io/docs/user/quick-start/) 
+    - minikube (https://minikube.sigs.k8s.io/docs/start/)
 
-## Utilização
+### Ubuntu
+1. Update the system:
+    - sudo apt update
+    - sudo apt upgrade
+2. Install prerequisite packages:
+    - sudo apt-get install  curl apt-transport-https ca-certificates software-properties-common
+3. Add the Docker repositories:
+    - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    - sudo apt update
+    - apt-cache policy docker-ce
+4. Install Docker for Ubuntu:
+    - sudo apt install docker-ce
+5. Check the Docker status:
+    - sudo systemctl status docker
+6. Install Kubernetes: 
+    - (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+7. Install a tool that is capable of creating a local cluster:
+    - kind (https://kind.sigs.k8s.io/docs/user/quick-start/) 
+    - minikube (https://minikube.sigs.k8s.io/docs/start/)
 
-Para utilizar este projeto, siga estas etapas:
+### Other Tools
+Refer to the Docker and Kubernetes documentation for proper installation instructions.
 
-1. Clone o repositório: `git clone https://github.com/your-username/student-k8s-project.git`
-2. Navegue até o diretório do projeto: `cd student-k8s-project`
-3. Implante o aplicativo usando o Kubernetes: `kubectl apply -f deployment.yaml`
-4. Monitore o aplicativo usando o painel do Kubernetes: `kubectl proxy` e acesse o painel em [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
+## Usage
 
-## Contribuição
+To use this project, follow these steps:
 
-Contribuições são bem-vindas! Se você tiver alguma ideia, sugestão ou relatório de bug, abra uma issue ou envie um pull request.
+1. Clone the repository: `https://github.com/Rafaelcoder18/dashboard-grafana-k8s.git`
+2. Navigate to the project directory: `cd student-k8s-project`
+3. Deploy the application using Kubernetes: `kubectl apply -f deployment.yaml`
+4. Monitor the application using the Kubernetes dashboard: `kubectl proxy` and access the dashboard at [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
-## Licença
+## Contribution
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
